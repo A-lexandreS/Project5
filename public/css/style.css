@@ -1,2 +1,23 @@
 /****** Home *******/
 
+body 
+{
+    background: #f9f9f9 url(../img/page-bg-1.jpg);
+    margin: 0px;
+}
+.color-bg 
+{ 
+    background:#d8450b; 
+}
+.color-bar-1, .color-bar-2 
+{ 
+    width:100% ; top: 0;
+}
+.color-bar-1 
+{ 
+    background:#414141; height:5px; 
+}
+.color-bar-2 
+{ 
+    height:3px; 
+}
