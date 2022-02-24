@@ -7,19 +7,18 @@
     <!-- Slider Carousel
    ================================================== -->
    <div class="container" id="carousel">
-       <div class="span8">
-           <div class="flexslider">
-               
-           </div>
+       <div class="span8">  
+            <div class="content" id="slider">
+                <img src="../img/theatre.png" alt="img-slide" id="slide">
+                <div id="precedent" onclick="ChangeSlide(-1)"><</div>
+                <div id="suivant" onclick="ChangeSlide(1)">></div>
+            </div>
        </div>
 
        <!-- Headline Text
    ================================================== -->
        <div class="span4">
-           <h3>Welcome to Piccolo. <br />
-               A Big Theme in a Small Package.</h3>
-           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium vulputate magna sit
-               amet blandit.</p>
+           <h3>Bienvenue sur le site du théâtre Le Crystal<br />Scène française et international</h3>
            <p>Cras rutrum, massa non blandit convallis, est lacus gravida enim, eu fermentum ligula orci et tortor. In
                sit
                amet nisl ac leo pulvinar molestie. Morbi blandit ultricies ultrices.</p>
@@ -27,4 +26,6 @@
        </div>
    </div>
 </div><!-- End Headline -->
+
+
 {% endblock %}
