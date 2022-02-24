@@ -1,31 +1,52 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="row headline">
-    <!-- Begin Headline -->
-
-    <!-- Slider Carousel
-   ================================================== -->
-   <div class="container" id="carousel">
-       <div class="span8">  
-            <div class="content" id="slider">
-                <img src="../img/theatre.png" alt="img-slide" id="slide">
-                <div id="precedent" onclick="ChangeSlide(-1)"><</div>
-                <div id="suivant" onclick="ChangeSlide(1)">></div>
+    <div class="row headline">
+        <div class="container" id="carousel">
+            <div class="span8">  
+                    <div class="content" id="slider">
+                        <img src="../img/theatre.png" alt="img-slide" id="slide">
+                        <div id="precedent" onclick="ChangeSlide(-1)"></div>
+                        <div id="suivant" onclick="ChangeSlide(1)"></div>
+                    </div>
             </div>
-       </div>
+            <div class="span4">
+                <h3>Bienvenue sur le site du théâtre Le Crystal<br />Scène française et international</h3>
+                <p>Cras rutrum, massa non blandit convallis, est lacus gravida enim, eu fermentum ligula orci et tortor. Insitamet nisl ac leo pulvinar molestie. Morbi blandit ultricies ultrices.</p>
+                <a href="#"><i class="icon-plus-sign"></i>En lire plus</a>
+            </div>
+        </div>
+    </div>
 
-       <!-- Headline Text
-   ================================================== -->
-       <div class="span4">
-           <h3>Bienvenue sur le site du théâtre Le Crystal<br />Scène française et international</h3>
-           <p>Cras rutrum, massa non blandit convallis, est lacus gravida enim, eu fermentum ligula orci et tortor. In
-               sit
-               amet nisl ac leo pulvinar molestie. Morbi blandit ultricies ultrices.</p>
-           <a href="#"><i class="icon-plus-sign"></i>Read More</a>
-       </div>
-   </div>
-</div><!-- End Headline -->
-
+    <div class="row gallery-row">
+        <div class="container">
+            <div class="span12">
+                <h5 class="title-bg">Dernières Actualités
+                    <small>Représentation comique et musical</small>
+                    <button class="btn btn-mini btn-inverse hidden-phone" type="button">View Portfolio</button>
+                </h5>
+                <div class="row">
+                    <div class="span4">
+                        <img src="img/gallery/gallery-img-1-3col.jpg" alt="image">
+                        <h5>3 Column Layout</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
+                        <button class="btn btn-small btn-inverse" type="button">En lire plus</button>
+                    </div>
+                    <div class="span4">
+                        <img src="img/gallery/gallery-img-1-3col.jpg" alt="image">
+                        <h5>3 Column Layout</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
+                        <button class="btn btn-small btn-inverse" type="button">En lire plus</button>
+                    </div>
+                    <div class="span4">
+                        <img src="img/gallery/gallery-img-1-3col.jpg" alt="image">
+                        <h5>3 Column Layout</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
+                        <button class="btn btn-small btn-inverse" type="button">En lire plus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
