@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <div class="span8 contact">
+                
+
+                <h2>Contactez nous</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc
+                    iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem
+                    eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna.</p>
+
+                <div class="alert alert-success">
+                    Well done! You successfully read this important alert message.
+                </div>
+
+                <form action="#" id="contact-form">
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="fa-solid fa-user"></i></span>
+                        <input class="span4" id="prependedInput" size="16" type="text" placeholder="Nom">
+                    </div>
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="fa-solid fa-envelope"></i></span>
+                        <input class="span4" id="prependedInput" size="16" type="text" placeholder="Email">
+                    </div>
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="fa-solid fa-question"></i></span>
+                        <input class="span4" id="prependedInput" size="16" type="text" placeholder="Requête">
+                    </div>
+                    <textarea class="span6"></textarea>
+                    <div class="row">
+                        <div class="span2">
+                            <input type="submit" class="btn btn-inverse" value="Envoyer Message">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+    
+            <div class="span4 sidebar page-sidebar">
+                
+                <h5 class="title-bg">Notre localisation</h5>
+                <address>
+                    <strong>Piccolo</strong><br>
+                    123 Main St, Suite 600<br>
+                    San Francisco, CA 94107<br>
+                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                </address>
+
+                <address>
+                    <strong>Marc Mils</strong><br>
+                    <a href="mailto:#">lecrystal-theatre@outlook.com</a>
+                </address>
+
+                <h5 class="title-bg">Emplacement théâtre</h5>
+                <img src="img/location-map.jpg" alt="map">
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
