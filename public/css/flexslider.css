@@ -24,7 +24,6 @@
     cursor: pointer;
     transition: opacity 0.3s ease;
     opacity: 0;
-	vertical-align: center;
     position: absolute;
     font-size: 50px;
     color: rgba(220, 220, 220, 0.8);
