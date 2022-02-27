@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     #[Route('/login', name: 'login')]
-    public function index(): Response
+    public function login(): Response
     {
         return $this->render('user/login.html.twig', []);
     }

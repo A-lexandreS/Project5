@@ -11,6 +11,6 @@ class PostController extends AbstractController
     #[Route('/reservation', name: 'reservation')]
     public function post(): Response
     {
-        return $this->render('reservation.html.twig', []);
+        return $this->render('post/reservation.html.twig', []);
     }
 }
