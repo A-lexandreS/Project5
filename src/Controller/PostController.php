@@ -6,11 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class UserController extends AbstractController
+class PostController extends AbstractController
 {
-    #[Route('/login', name: 'login')]
-    public function login(): Response
+    #[Route('/reservation', name: 'reservation')]
+    public function post(): Response
     {
-        return $this->render('user/login.html.twig', []);
+        return $this->render('post/reservation.html.twig', []);
     }
 }
