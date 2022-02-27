@@ -13,4 +13,9 @@ class PostController extends AbstractController
     {
         return $this->render('post/reservation.html.twig', []);
     }
+    #[Route('/gallery', name: 'gallery')]
+    public function posts(): Response
+    {
+        return $this->render('post/gallery.html.twig', []);
+    }
 }
