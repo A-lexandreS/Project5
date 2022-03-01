@@ -18,10 +18,10 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/contact.html.twig', []);
     }
-    #[Route('/gallery', name: 'gallery')]
-    public function posts(): Response
+    #[Route('/events', name: 'events')]
+    public function events(): Response
     {
-        return $this->render('post/gallery.html.twig', []);
+        return $this->render('post/events.html.twig', []);
     }
 }
 
