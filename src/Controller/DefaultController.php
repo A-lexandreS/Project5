@@ -21,7 +21,7 @@ class DefaultController extends AbstractController
     #[Route('/events', name: 'events')]
     public function events(): Response
     {
-        return $this->render('post/events.html.twig', []);
+        return $this->render('default/events.html.twig', []);
     }
 }
 
