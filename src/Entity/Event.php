@@ -36,13 +36,16 @@ class Event
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Registration::class)]
     private $registrations;
 
+    #[ORM\Column(type: 'integer')]
+    private $price;
+
     public function __construct()
     {
         $this->registrations = new ArrayCollection();
     }
     public function getTotalQuantity()
     {
-        dd($this->registrations);
+        
     }
     public function getId(): ?int
     {
@@ -147,6 +150,18 @@ class Event
                 $registration->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(int $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }
