@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
+#[ORM\Table(name : "events")]
 class Event
 {
     #[ORM\Id]
@@ -33,7 +34,7 @@ class Event
     #[ORM\Column(type: 'integer')]
     private $maxRegistration;
 
-    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Registration::class)]
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Registration::class, cascade: ["persist"])]
     private $registrations;
 
     #[ORM\Column(type: 'integer')]
@@ -42,10 +43,6 @@ class Event
     public function __construct()
     {
         $this->registrations = new ArrayCollection();
-    }
-    public function getTotalQuantity()
-    {
-        
     }
     public function getId(): ?int
     {

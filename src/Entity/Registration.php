@@ -6,6 +6,7 @@ use App\Repository\RegistrationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RegistrationRepository::class)]
+#[ORM\Table(name: "registrations")]
 class Registration
 {
     #[ORM\Id]
@@ -13,7 +14,7 @@ class Registration
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'registrations')]
+    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'registrations',cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private $event;
 
