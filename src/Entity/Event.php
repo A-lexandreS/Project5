@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
+#[ORM\Table(name : "events")]
 class Event
 {
     #[ORM\Id]
@@ -21,13 +22,13 @@ class Event
     #[ORM\Column(type: 'string', length: 50)]
     private $picture;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $eventDate;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $startedAt;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $endedAt;
 
     #[ORM\Column(type: 'integer')]
@@ -39,13 +40,12 @@ class Event
     #[ORM\Column(type: 'integer')]
     private $price;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $description;
+
     public function __construct()
     {
         $this->registrations = new ArrayCollection();
-    }
-    public function getTotalQuantity()
-    {
-        
     }
     public function getId(): ?int
     {
@@ -162,6 +162,18 @@ class Event
     public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

@@ -23,5 +23,10 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/events.html.twig', []);
     }
+    #[Route('/dashboard', name: 'dashboard')]
+    public function dashboard(): Response
+    {
+        return $this->render('default/dashboard.html.twig', []);
+    }
 }
 
