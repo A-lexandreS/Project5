@@ -1,0 +1,39 @@
+#crud
+{
+    background-color: #ffffff;
+    margin-bottom: 1.25rem;
+}
+#dashboard td form button.button{
+	padding:0.25em;margin:0.25em;
+	background:none;
+	color:blue;
+}
+#dashboard td form button.button:hover{
+  background:none;
+	color:steelblue;
+}
+#dashboard .button.tiny {
+    padding-top: 0.625rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.6875rem;
+    padding-left: 1.25rem;
+    font-size: 13px;
+}
+#dahsboard button, .button {
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.25rem;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    -webkit-appearance: none;
+    border-radius: 0;
+    background-color: #008CBA;
+    border-color: #007095;
+    color: #FFFFFF;
+    transition: background-color 300ms ease-out;
+}

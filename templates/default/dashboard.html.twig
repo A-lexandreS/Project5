@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de Bord{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="large-12 columns" id="dashboard">
+                <h1>Dashboard</h1>
+                <p><a href="#"><i class="fa fa-plus-square"></i>Retour vers la Page d'accueil</a></p>
+                <table class="table table-success table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Chapitre</th>
+                            <th scope="col">Titre</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <th scope="row"></th>
+                                <td></td>
+                                <td class="action-table align-middle">
+                                    <a class="btn btn-primary btn-small" href="">icone</a>
+                                    <a class="ms-2 btn btn-danger btn-small" href="">icone</a>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
+                <button class="tiny button right">Créer</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

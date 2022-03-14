@@ -22,23 +22,26 @@ class Event
     #[ORM\Column(type: 'string', length: 50)]
     private $picture;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $eventDate;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $startedAt;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $endedAt;
 
     #[ORM\Column(type: 'integer')]
     private $maxRegistration;
 
-    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Registration::class, cascade: ["persist"])]
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Registration::class)]
     private $registrations;
 
     #[ORM\Column(type: 'integer')]
     private $price;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $description;
 
     public function __construct()
     {
@@ -159,6 +162,18 @@ class Event
     public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
