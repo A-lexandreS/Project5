@@ -19,7 +19,7 @@ class Event
     #[ORM\Column(type: 'string', length: 50)]
     private $name;
 
-    #[ORM\Column(type: 'string', length: 50)]
+    #[ORM\Column(type: 'string', length: 100)]
     private $picture;
 
     #[ORM\Column(type: 'datetime_immutable')]

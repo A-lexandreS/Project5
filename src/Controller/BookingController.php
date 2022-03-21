@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BookingController extends AbstractController
 {
     #[Route('/booking', name: 'booking')]
-    public function reservation(Request $request): Response
+    public function booking(Request $request): Response
     {
         $form = $this->createFormBuilder()
             ->add('Name', TextType::class)
