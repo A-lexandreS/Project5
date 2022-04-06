@@ -5,7 +5,9 @@ namespace App\Entity;
 use App\Repository\EventRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 #[ORM\Table(name : "events")]
@@ -16,36 +18,55 @@ class Event
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 50)]
     private $name;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 50)]
     private $picture;
 
     #[ORM\Column(type: 'datetime_immutable')]
     private $eventDate;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'datetime_immutable')]
     private $startedAt;
 
+    #[Assert\NotBlank]
+    #[Assert\GreaterThan(propertyPath:'startedAt')]
     #[ORM\Column(type: 'datetime_immutable')]
     private $endedAt;
 
+    #[Assert\NotBlank]
+    #[Assert\Positive]
+    #[Assert\Length(min:2, max:4)]
     #[ORM\Column(type: 'integer')]
     private $maxRegistration;
 
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Registration::class)]
     private $registrations;
 
+    #[Assert\NotBlank]
+    #[Assert\GreaterThanOrEqual(
+        value: 10,
+    )]
+    #[Assert\Length(min:1, max:3)]
+    #[Assert\Positive]
     #[ORM\Column(type: 'integer')]
+    #[Assert\Regex('/^\d*\.?\d*$/')]
     private $price;
 
+    #[Assert\NotBlank]
+    #[Assert\Regex('/^\w+/')]
     #[ORM\Column(type: 'string', length: 255)]
     private $description;
 
     public function __construct()
     {
         $this->registrations = new ArrayCollection();
+        $date = new \DateTime('now');
+        $this->eventDate = DateTimeImmutable::createFromMutable($date);
     }
     public function getId(): ?int
     {

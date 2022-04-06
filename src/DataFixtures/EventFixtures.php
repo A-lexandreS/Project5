@@ -2,33 +2,42 @@
 
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Persistence\ObjectManager;
+use Faker\Factory;
+use Faker\Generator;
 use App\Entity\Event;
-use DateInterval;
 use DateTimeImmutable;
-
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class EventFixtures extends Fixture 
 {
+    private Generator $faker;
+
+    public function __construct()
+    {
+        $this->faker = Factory::create('fr_FR');
+    }
     public function load(ObjectManager $manager): void
     {
-        $now = new DateTimeImmutable();
-        $startedAt = $now->add(new DateInterval("P3D"));
-        $endedAt = $now->add(new DateInterval("P21D"));
-        $event = new Event();
-        $event->setName('Troupe la tulipe')
-            ->setpicture('img-1')
-            ->setEventDate($now)
-            ->setStartedAt($startedAt)
-            ->setEndedAt($endedAt)
-            ->setMaxRegistration(50)
-            ->setPrice(10);
+        for($i = 0; $i < 10; $i++)
+        { 
+            $now = $this->faker->dateTime();
+            $event = new Event();
+            $startedAt = $this->faker->dateTimeBetween($now, '+2 days');
+            $endedAt = $this->faker->dateTimeBetween($now, '+21 days');
+            
+            $event->setName($this->faker->word())
+                ->setPicture($this->faker->imageUrl(640, 480,'animals', true))
+                ->setEventDate(DateTimeImmutable::createFromMutable( $now ))
+                ->setStartedAt(DateTimeImmutable::createFromMutable( $startedAt ))
+                ->setEndedAt(DateTimeImmutable::createFromMutable( $endedAt ))
+                ->setMaxRegistration(50)
+                ->setPrice(10)
+                ->setDescription($this->faker->text(70));
 
-            $manager->persist($event);
-
-            $this->addReference('event', $event);
-
-            $manager->flush();
+                $manager->persist($event);
+        }
+        $this->addReference('event', $event);
+        $manager->flush();
     }
 }

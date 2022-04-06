@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un Événement{% endblock %}
+
+{% block body %}
+    <div class="container forms">
+        <h1>Modifier un événement</h1>
+        {{ form_start(form, {'attr': {novalidate: 'novalidate'}}) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+            <div class="errorsForm">{{ form_errors(form.name) }}</div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.picture) }}
+            {{ form_widget(form.picture) }}
+            <div class="errorsForm">{{ form_errors(form.picture) }}</div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.startedAt) }}
+            {{ form_widget(form.startedAt) }}
+            <div class="errorsForm">{{ form_errors(form.startedAt) }}</div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.endedAt) }}
+            {{ form_widget(form.endedAt) }}
+            <div class="errorsForm">{{ form_errors(form.endedAt) }}</div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.maxRegistration) }}
+            {{ form_widget(form.maxRegistration) }}
+            <div class="errorsForm">{{ form_errors(form.maxRegistration) }}</div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.price) }}
+            {{ form_widget(form.price) }}
+            <div class="errorsForm">{{ form_errors(form.price) }}</div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+            <div class="errorsForm">{{ form_errors(form.description) }}</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Modifier</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

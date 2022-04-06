@@ -37,3 +37,8 @@
     color: #FFFFFF;
     transition: background-color 300ms ease-out;
 }
+table
+{
+    table-layout: fixed;
+    width: 100%;
+}

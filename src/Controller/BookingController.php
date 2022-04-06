@@ -13,10 +13,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class ReservationController extends AbstractController
+class BookingController extends AbstractController
 {
-    #[Route('/reservation', name: 'reservation')]
-    public function reservation(Request $request): Response
+    #[Route('/booking')]
+    public function booking(Request $request): Response
     {
         $form = $this->createFormBuilder()
             ->add('Name', TextType::class)
@@ -32,6 +32,6 @@ class ReservationController extends AbstractController
             dd('traitement');
         }
 
-        return $this->render('reservation/reservation.html.twig', ['Reservation' => $form->createview()]);
+        return $this->render('booking/booking.html.twig', ['Booking' => $form->createview()]);
     }
 }
