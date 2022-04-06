@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Créer un Événement{% endblock %}
+{% block title %}Modifier un Événement{% endblock %}
 
 {% block body %}
     <div class="container forms">
-        <h1>Créer un événement</h1>
+        <h1>Modifier un événement</h1>
         {{ form_start(form, {'attr': {novalidate: 'novalidate'}}) }}
-
         <div class="form-group">
             {{ form_label(form.name) }}
             {{ form_widget(form.name) }}
@@ -42,7 +41,7 @@
             {{ form_widget(form.description) }}
             <div class="errorsForm">{{ form_errors(form.description) }}</div>
         </div>
-        <button type="submit" class="btn btn-primary">Créer</button>
+        <button type="submit" class="btn btn-primary">Modifier</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}

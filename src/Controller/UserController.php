@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
-    #[Route('/login', name: 'login')]
+    #[Route('/login')]
     public function login(): Response
     {
         return $this->render('user/login.html.twig', []);

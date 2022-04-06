@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BookingController extends AbstractController
 {
-    #[Route('/booking', name: 'booking')]
+    #[Route('/booking')]
     public function booking(Request $request): Response
     {
         $form = $this->createFormBuilder()
