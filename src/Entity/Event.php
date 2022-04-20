@@ -22,8 +22,7 @@ class Event
     #[ORM\Column(type: 'string', length: 50)]
     private $name;
 
-    #[Assert\NotBlank]
-    #[ORM\Column(type: 'string', length: 50)]
+    #[ORM\Column(type: 'string')]
     private $picture;
 
     #[ORM\Column(type: 'datetime_immutable')]
@@ -59,7 +58,7 @@ class Event
 
     #[Assert\NotBlank]
     #[Assert\Regex('/^\w+/')]
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string')]
     private $description;
 
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Comment::class)]
@@ -118,7 +117,7 @@ class Event
         return $this->startedAt;
     }
 
-    public function setStartedAt(\DateTimeInterface $startedAt): self
+    public function setStartedAt(?\DateTimeInterface $startedAt): self
     {
         $this->startedAt = $startedAt;
 
@@ -130,7 +129,7 @@ class Event
         return $this->endedAt;
     }
 
-    public function setEndedAt(\DateTimeInterface $endedAt): self
+    public function setEndedAt(?\DateTimeInterface $endedAt): self
     {
         $this->endedAt = $endedAt;
 

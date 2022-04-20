@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 #[ORM\Table(name: "comments")]
@@ -15,7 +16,7 @@ class Comment
     private $id;
 
     #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'comments', cascade: ['persist'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $event;
 
     #[ORM\Column(type: 'string', length: 50)]
@@ -24,9 +25,15 @@ class Comment
     #[ORM\Column(type: 'string', length: 255)]
     private $comment;
 
-    #[ORM\Column(type: 'datetime')]
-    private $comment_date;
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $commentDate;
 
+
+    public function __construct()
+    {
+        $date = new \DateTime('now');
+        $this->commentDate = DateTimeImmutable::createFromMutable($date);
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -70,12 +77,12 @@ class Comment
 
     public function getCommentDate(): ?\DateTimeInterface
     {
-        return $this->comment_date;
+        return $this->commentDate;
     }
 
-    public function setCommentDate(\DateTimeInterface $comment_date): self
+    public function setCommentDate(\DateTimeInterface $commentDate): self
     {
-        $this->comment_date = $comment_date;
+        $this->commentDate = $commentDate;
 
         return $this;
     }

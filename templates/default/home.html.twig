@@ -26,24 +26,14 @@
                     <button class="btn btn-mini btn-inverse hidden-phone" type="button">View Portfolio</button>
                 </h5>
                 <div class="row">
-                    <div class="span4">
-                        <img src="img/gallery/gallery-img-1-3col.jpg" alt="image">
-                        <h5>3 Column Layout</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
-                        <button class="btn btn-small btn-inverse" type="button">En lire plus</button>
-                    </div>
-                    <div class="span4">
-                        <img src="img/gallery/gallery-img-1-3col.jpg" alt="image">
-                        <h5>3 Column Layout</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
-                        <button class="btn btn-small btn-inverse" type="button">En lire plus</button>
-                    </div>
-                    <div class="span4">
-                        <img src="img/gallery/gallery-img-1-3col.jpg" alt="image">
-                        <h5>3 Column Layout</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
-                        <button class="btn btn-small btn-inverse" type="button">En lire plus</button>
-                    </div>
+                    {% for lastEvent in lastEvents %}
+                        <div class="span4">
+                            <img src="{{ asset( 'uploads/pictures/' ~ lastEvent.picture) }}" alt="image">
+                            <h5>{{ lastEvent.name }}</h5>
+                            <p>{{ lastEvent.description }}</p>
+                            <a class="btn btn-small btn-inverse" type="button" href="{{ path('app_booking_booking', {id: lastEvent.id}) }}">En lire plus</a>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

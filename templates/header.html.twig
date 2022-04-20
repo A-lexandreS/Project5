@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row header">
             <div class="span5 logo">
-                <a href="index.htm"><img src="{{ asset('img/logo.png') }}" alt="" /></a>
+                <a href="{{ path('app_default_home') }}"><img src="{{ asset('img/logo.png') }}" alt="" /></a>
                 <h5>Théâtre Le Crystal</h5>
             </div>
 
@@ -14,7 +14,7 @@
                     <ul class="nav">
                         <li class="principalMenu"><a href="{{ path('app_default_home') }}">Accueil </a></li>
                         <li class="principalMenu"><a href="features.htm">Se connecter </a></li>
-                        <li class="principalMenu"><a href="{{ path('app_booking_booking') }}">Réservation </a></li>
+                        <li class="principalMenu"><a href="{{ path('app_default_events') }}">Événements</a></li>
                         <li class="principalMenu"><a href="{{ path('app_default_contact') }}">Contact</a></li>
                         <li class="principalMenu"><a href="{{ path('app_default_dashboard') }}">Dashboard</a></li>
                     </ul>
