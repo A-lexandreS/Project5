@@ -18,7 +18,18 @@ class EventRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Event::class);
     }
+    public function findLastEvents()
+    {
+        $em = $this->getEntityManager();
 
+        $query = $em->createQuery(
+            'SELECT e
+            FROM App\Entity\Event e
+            ORDER BY e.eventDate DESC'
+        )->setMaxResults(3);
+
+        return $query->getResult();
+    }
     // /**
     //  * @return Event[] Returns an array of Event objects
     //  */

@@ -54,7 +54,12 @@ textarea {
     padding: 20px;
     margin: 0 auto;
 }
-
+.forms .uploadFile
+{
+    resize: none;
+    box-sizing: unset;
+    border: none;
+}
 @media (max-width: 575.98px) {
     .forms {
         width: 100%;

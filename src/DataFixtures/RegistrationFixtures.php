@@ -2,29 +2,34 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Registration;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use App\Entity\Registration;
+use Faker\Factory;
+
 
 class RegistrationFixtures extends Fixture implements DependentFixtureInterface
 {
+
+
+    public function __construct()
+    {
+        $this->faker = Factory::create('fr_FR');
+    }
     public function load(ObjectManager $manager): void
     {
-        $registration = new Registration();
-        $event = $this->getReference('event');
-
-        $registration->setEvent($event)
-            ->setFirstName('Alex 2')
-            ->setLastName('Col 2')
-            ->setEmail('alex@outlook.fr')
-            ->setQuantity(4);
-
-        $manager->persist($registration);
-        
-
+        for($i=0; $i < 10; $i++)
+        {
+            $booking = new Registration();
+            $booking->setEvent($this->getReference(EventFixtures::EVENT_REFERENCE))
+                ->setFirstName($this->faker->word())
+                ->setLastName($this->faker->word())
+                ->setEmail($this->faker->email())
+                ->setQuantity($this->faker->randomDigit());
+            $manager->persist($booking);
+        }
         $manager->flush();
-
     }
     public function getDependencies()
     {

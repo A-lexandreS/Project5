@@ -15,7 +15,7 @@ class Registration
     private $id;
 
     #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'registrations',cascade: ['persist'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $event;
 
     #[ORM\Column(type: 'string', length: 50)]

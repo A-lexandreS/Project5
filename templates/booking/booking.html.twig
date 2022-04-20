@@ -14,20 +14,10 @@
                     <a href="#"><img src="img/gallery/post-img-1.jpg" alt="Post Thumb"></a>
 
                     <div class="post-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis
-                            gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum
-                            molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum
-                            vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod
-                            odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui. Vivamus tincidunt
-                            sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae,
-                            volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit
-                            amet felis non lorem faucibus rhoncus vitae id dui.Nulla iaculis mattis lorem, quis gravida
-                            nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie.
-                            Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae
-                            laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio
-                            placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
+                        <p>{{ event.description }}</p>
+                        <p>Prix de la prestation: {{ event.price }} euros</p>
                         <div class="well">
-                            {{ form(Booking) }}
+                            {{ form(formBooking) }}
                         </div>
                         <blockquote>
                             Vous souhaitez reserver ? Ajouter le nombre de place que vous désirez et completez en
@@ -47,6 +37,9 @@
 
 
             <section class="comments">
+                {{ form_start(formComment) }}
+                    {{ form_widget(formComment) }}
+                {{ form_end(formComment) }}
                 <h4 class="title-bg"><a name="comments"></a>5 Comments so far</h4>
             <ul>
                     <li>

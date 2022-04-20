@@ -12,6 +12,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 class EventFixtures extends Fixture 
 {
     private Generator $faker;
+    public const EVENT_REFERENCE = 'event';
 
     public function __construct()
     {
@@ -33,11 +34,11 @@ class EventFixtures extends Fixture
                 ->setEndedAt(DateTimeImmutable::createFromMutable( $endedAt ))
                 ->setMaxRegistration(50)
                 ->setPrice(10)
-                ->setDescription($this->faker->text(70));
-
+                ->setDescription($this->faker->text(350));
+                
                 $manager->persist($event);
         }
-        $this->addReference('event', $event);
+        $this->addReference(self::EVENT_REFERENCE, $event);
         $manager->flush();
     }
 }

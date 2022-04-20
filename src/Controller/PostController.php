@@ -7,15 +7,16 @@ use App\Form\EventType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Flex\Response as FlexResponse;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class PostController extends AbstractController
 {
     #[Route('/dashboard/create-post')]
-    public function createPost(Request $request, EntityManagerInterface $em): Response
+    public function createPost(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
     { 
 
         $event = new Event();
@@ -24,6 +25,27 @@ class PostController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
+            $picture = $form->get('picture')->getData();
+            if($picture)
+            {
+                $originalFileName = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
+
+                $safeFileName = $slugger->slug($originalFileName);
+                $newFilename = $safeFileName.'-'.uniqid().'.'.$picture->guessExtension();
+
+                try
+                {
+                    $picture->move(
+                        $this->getParameter('picture_directory'),
+                        $newFilename
+                    );
+                } catch(FileException $e)
+                {
+                    
+                }
+                $event->setPicture($newFilename);
+            }
+
             $em->persist($event);
 
             $em->flush();
