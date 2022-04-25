@@ -11,25 +11,46 @@
             <article>
                 <h3 class="title-bg"><a href="#">A subject that is beautiful in itself</a></h3>
                 <div class="post-content">
-                    <a href="#"><img src="img/gallery/post-img-1.jpg" alt="Post Thumb"></a>
+                    <img src="{{ event.picture }}" alt="Post Thumb">
 
                     <div class="post-body">
+                        <h3>{{ event.name }}</h3>
                         <p>{{ event.description }}</p>
                         <p>Prix de la prestation: {{ event.price }} euros</p>
                         <div class="well">
-                            {{ form(formBooking) }}
+                            {{ form_start(formBooking) }}
+                            <div class="form-group">
+                                {{ form_label(formBooking.lastName) }}
+                                {{ form_widget(formBooking.lastName) }}
+                                <div class="errorsForm">{{ form_errors(formBooking.lastName) }}</div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formBooking.firstName) }}
+                                {{ form_widget(formBooking.firstName) }}
+                                <div class="errorsForm">{{ form_errors(formBooking.firstName) }}</div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formBooking.email) }}
+                                {{ form_widget(formBooking.email) }}
+                                <div class="errorsForm">{{ form_errors(formBooking.email) }}</div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formBooking.quantity) }}
+                                {{ form_widget(formBooking.quantity) }}
+                                <div class="errorsForm">{{ form_errors(formBooking.quantity) }}</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">S'inscrire</button>
+                            {{ form_end(formBooking) }}
                         </div>
                         <blockquote>
                             Vous souhaitez reserver ? Ajouter le nombre de place que vous désirez et completez en
-                            mettant votre nom et prénom. Nombre de place disponible limité.
+                            mettant votre nom et prénom. Nombre de place disponible limité. <span class="nbRegistration">{{ event.maxRegistration}} pour cette évènement.</span>
                         </blockquote>
                     </div>
 
                     <div class="post-summary-footer">
                         <ul class="post-data">
-                            <li><i class="icon-calendar"></i> 09/04/15</li>
-                            <li><i class="icon-user"></i> <a href="#">Admin</a></li>
-                            <li><i class="icon-comment"></i> <a href="#">5 Comments</a></li>
+                            <li><i class="icon-comment"></i> <a href="#"><span>{{ comments|length }}</span> commentaires</a></li>
                         </ul>
                     </div>
                 </div>
@@ -37,73 +58,36 @@
 
 
             <section class="comments">
-                {{ form_start(formComment) }}
-                    {{ form_widget(formComment) }}
-                {{ form_end(formComment) }}
-                <h4 class="title-bg"><a name="comments"></a>5 Comments so far</h4>
-            <ul>
-                    <li>
-                        <img src="img/user-avatar.jpg" alt="Image" />
-                        <span class="comment-name">John Doe</span>
-                        <span class="comment-date">March 15, 2015 | <a href="#">Reply</a></span>
-                        <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis, ligula quis sagittis euismod, odio ante molestie tortor, eget ullamcorper lacus nunc a ligula. Donec est lacus, aliquet in interdum id, rutrum ac tellus. Ut rutrum, justo et lobortis commodo, est metus ornare tortor, vitae luctus turpis leo sed magna. In leo dolor, suscipit non mattis in.</div>
-                        
-                        <ul>
-                            <li>
-                                <img src="img/user-avatar.jpg" alt="Image" />
-                                <span class="comment-name">Jason Doe</span>
-                                <span class="comment-date">March 15, 2015 | <a href="#">Reply</a></span>
-                                <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis, ligula quis sagittis euismod, odio ante molestie tortor, eget ullamcorper lacus nunc a ligula. Donec est lacus, aliquet in interdum id, rutrum ac tellus. Ut rutrum, justo et lobortis commodo, est metus ornare tortor, vitae luctus turpis leo sed magna. In leo dolor, suscipit non mattis in.</div>
-                                </li>
-                            <li>
-                                <img src="img/user-avatar.jpg" alt="Image" />
-                                <span class="comment-name">Jason Doe</span>
-                                <span class="comment-date">March 15, 2015 | <a href="#">Reply</a></span>
-                                <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis, ligula quis sagittis euismod, odio ante molestie tortor, eget ullamcorper lacus nunc a ligula. Donec est lacus, aliquet in interdum id, rutrum ac tellus. Ut rutrum, justo et lobortis commodo, est metus ornare tortor, vitae luctus turpis leo sed magna. In leo dolor, suscipit non mattis in.</div>
-                                </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <img src="img/user-avatar.jpg" alt="Image" />
-                        <span class="comment-name">John Doe</span>
-                        <span class="comment-date">March 15, 2015 | <a href="#">Reply</a></span>
-                        <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis, ligula quis sagittis euismod, odio ante molestie tortor, eget ullamcorper lacus nunc a ligula. Donec est lacus, aliquet in interdum id, rutrum ac tellus. Ut rutrum, justo et lobortis commodo, est metus ornare tortor, vitae luctus turpis leo sed magna. In leo dolor, suscipit non mattis in.</div>
-                    </li>
-                    <li>
-                        <img src="img/user-avatar.jpg" alt="Image" />
-                        <span class="comment-name">John Doe</span>
-                        <span class="comment-date">March 15, 2015 | <a href="#">Reply</a></span>
-                        <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis, ligula quis sagittis euismod, odio ante molestie tortor, eget ullamcorper lacus nunc a ligula. Donec est lacus, aliquet in interdum id, rutrum ac tellus. Ut rutrum, justo et lobortis commodo, est metus ornare tortor, vitae luctus turpis leo sed magna. In leo dolor, suscipit non mattis in.</div>
-                    </li>
-                    
-            </ul>
+                <h4 class="title-bg"><a name="comments"></a><span>{{ comments|length }}</span> commentaires</h4>
+                <ul>
+                    {% for comment in comments %}
+                        <li>
+                            <img src="img/user-avatar.jpg" alt="Image" />
+                            <span class="comment-name">{{ comment.user }}</span>
+                            <span class="comment-date">{{ comment.commentDate }}<a href="#">Reply</a></span>
+                            <div class="comment-content">{{ comment.comment }}</div>
+                        </li>
+                    {% endfor %}
+                </ul>
             
                 
                 <div class="comment-form-container">
-                    <h6>Leave a Comment</h6>
-                    <form action="#" id="comment-form">
-                        <div class="input-prepend">
-                            <span class="add-on"><i class="icon-user"></i></span>
-                            <input class="span4" id="prependedInput" size="16" type="text" placeholder="Name">
+                    <h6>Laisser un commentaire</h6>
+                    {{ form_start(formComment, {'attr': {novalidate: 'novalidate'}}) }}
+                        <div class="form-group">
+                            {{ form_label(formComment.user) }}
+                            {{ form_widget(formComment.user) }}
+                            <div class="errorsForm">{{ form_errors(formComment.comment) }}</div>
                         </div>
-                        <div class="input-prepend">
-                            <span class="add-on"><i class="icon-envelope"></i></span>
-                            <input class="span4" id="prependedInput" size="16" type="text" placeholder="Email Address">
+                        <div class="form-group">
+                            {{ form_label(formComment.comment) }}
+                            {{ form_widget(formComment.comment) }}
+                            <div class="errorsForm">{{ form_errors(formComment.comment) }}</div>
                         </div>
-                        <div class="input-prepend">
-                            <span class="add-on"><i class="icon-globe"></i></span>
-                            <input class="span4" id="prependedInput" size="16" type="text" placeholder="Website URL">
-                        </div>
-                        <textarea class="span6"></textarea>
-                        <div class="row">
-                            <div class="span2">
-                                <input type="submit" class="btn btn-inverse" value="Post My Comment">
-                            </div>
-                        </div>
-                    </form>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    {{form_end(formComment)}}
                 </div>
-        </section>
-
+            </section>
         </div>
 
          
@@ -140,8 +124,8 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="comments">
                     <ul>
-                        <li><i class="icon-comment"></i>Accueil <a href="#">link accueil</a></li>
-                        <li><i class="icon-comment"></i>Galeries <a href="#">link galeries</a></li>
+                        <li><i class="icon-comment"></i>Accueil <a href="{{ path('app_default_home') }}">Lien accueil</a></li>
+                        <li><i class="icon-comment"></i>Galeries <a href="{{ path('app_default_events') }}">Lien évènements</a></li>
                     </ul>
                 </div>
                 <div class="tab-pane" id="tweets">

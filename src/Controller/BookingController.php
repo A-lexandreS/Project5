@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Event;
 use App\Entity\Comment;
 use App\Entity\Registration;
-use Doctrine\Persistence\ManagerRegistry;
 use App\Form\CommentType;
 use App\Form\RegistrationType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,7 +21,8 @@ class BookingController extends AbstractController
     public function booking(Request $request, EntityManagerInterface $em, Event $event): Response
     {
         
-        $booking = new Registration($event);
+        $booking = new Registration();
+        $booking->setEvent($event);
         $formBooking = $this->createForm(RegistrationType::class, $booking)->handleRequest($request);
 
         if ($formBooking->isSubmitted() && $formBooking->isValid()) 
@@ -30,10 +30,11 @@ class BookingController extends AbstractController
             $em->persist($booking);
 
             $em->flush();
-            return $this->redirectToRoute('app_booking_booking');
+            return $this->redirectToRoute('app_booking_booking', ['id' => $event->getId()]);
         }
 
-        $comment = new Comment($event);
+        $comment = new Comment();
+        $comment->setEvent($event);
         $formComment = $this->createForm(CommentType::class, $comment)->handleRequest($request);
         
         if ($formComment->isSubmitted() && $formComment->isValid()) 
@@ -41,15 +42,14 @@ class BookingController extends AbstractController
             $em->persist($comment);
 
             $em->flush();
-            return $this->redirectToRoute('app_booking_booking');
+            return $this->redirectToRoute('app_booking_booking', ['id' => $event->getId()]);
         }
-        
+        $comments = $event->getComments();
         return $this->renderForm('booking/booking.html.twig', [
             'formBooking' => $formBooking,
             'formComment' => $formComment,
             'event' => $event,
-            'comment' => $comment
-
+            'comments' => $comments
         ]);
     }
 }
