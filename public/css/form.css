@@ -27,7 +27,10 @@ textarea {
 .forms .fieldSizeMoney {
     width: 20%;
 }
-
+.textAreaComment
+{
+    width: 100%;
+}
 .forms label {
     margin-right: 0px;
     margin-left: 0px;

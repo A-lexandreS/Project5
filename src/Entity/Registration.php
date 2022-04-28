@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\RegistrationRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: RegistrationRepository::class)]
 #[ORM\Table(name: "registrations")]
 class Registration
@@ -18,15 +18,24 @@ class Registration
     #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $event;
 
+    #[Assert\NotBlank]
+    #[Assert\Regex(
+        pattern: '#^[a-zA-Z]#',
+        htmlPattern: '^[a-zA-Z]'
+    )]
     #[ORM\Column(type: 'string', length: 50)]
     private $firstName;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 50)]
     private $lastName;
 
+    #[Assert\NotBlank]
+    #[Assert\Email]
     #[ORM\Column(type: 'string', length: 255)]
     private $email;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'integer')]
     private $quantity;
 
