@@ -62,9 +62,9 @@
                 <ul>
                     {% for comment in comments %}
                         <li>
-                            <img src="img/user-avatar.jpg" alt="Image" />
+                            <img src="{{ asset('img/user-avatar.jpg') }}" alt="Image" />
                             <span class="comment-name">{{ comment.user }}</span>
-                            <span class="comment-date">{{ comment.commentDate }}<a href="#">Reply</a></span>
+                            <span class="comment-date"> || {{ comment.commentDate | date('d-m-Y') }}
                             <div class="comment-content">{{ comment.comment }}</div>
                         </li>
                     {% endfor %}

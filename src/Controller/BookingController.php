@@ -10,6 +10,7 @@ use App\Entity\Registration;
 use App\Form\CommentType;
 use App\Form\RegistrationType;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,5 +52,21 @@ class BookingController extends AbstractController
             'event' => $event,
             'comments' => $comments
         ]);
+    }
+    #[Route('/booking/delete-registration/{id}')]
+    public function deleteRegistration(EntityManagerInterface $em, int $id)
+    {
+        $registration = $em->getRepository(Registration::class)->find($id);
+        $em->remove($registration);
+        $em->flush();
+        return $this->redirectToRoute('app_default_dashboard');
+    }
+    #[Route('/booking/delete-comment/{id}')]
+    public function deleteComment(EntityManagerInterface $em, int $id)
+    {
+        $comment = $em->getRepository(Comment::class)->find($id);
+        $em->remove($comment);
+        $em->flush();
+        return $this->redirectToRoute('app_default_dashboard');
     }
 }

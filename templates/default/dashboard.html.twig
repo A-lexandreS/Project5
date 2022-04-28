@@ -3,34 +3,86 @@
 {% block title %}Tableau de Bord{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="large-12 columns" id="dashboard">
-                <h1>Dashboard</h1>
-                <p><a href="{{ path('app_default_home') }}"><i class="fa fa-plus-square"></i>Retour vers la Page d'accueil</a></p>
-                {% for event in events %}
-                    <table class="table table-success table-striped table-hover">
-                        <thead>
+<div class="container">
+    <div class="row">
+        <div class="large-12 columns" id="dashboard">
+            <h1>Dashboard</h1>
+            <p><a href="{{ path('app_default_home') }}"><i class="fa fa-plus-square"></i>Retour vers la Page d'accueil</a></p>
+            <h3>Evènnements</h3>
+            <table class="table table-success table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nom de l'évènement</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td>{{ event.id}}</td>
+                            <td>{{ event.name}}</td>
+                            <td class="action-table align-middle">
+                                <a class="btn btn-primary btn-small" href="{{ path('app_post_changepost', {id: event.id}) }}"><i class="fa-solid fa-arrows-spin"></i>Modifier</a>
+                                <a class="ms-2 btn btn-danger btn-small" href="{{ path('app_post_deletepost', {id: event.id}) }}"><i class="fa-solid fa-trash-can"></i>Supprimer</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                <a class="tiny button left bottom" href="{{ path('app_post_createpost') }}">Créer</a>
+            </table>
+
+            <div>
+                <h3>Inscriptions</h3>
+                <table class="table table-success table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Evènement</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Quantité d'inscription</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for registration in registrations %}
+                        <tr>
+                            <td>{{ registration.event.name}}</td>
+                            <td>{{ registration.firstName }}</td>
+                            <td>{{ registration.quantity}}</td>
+                            <td class="action-table align-middle">
+                                <a class="ms-2 btn btn-danger btn-small" href="{{ path('app_booking_deleteregistration', {id: registration.id}) }}"><i class="fa-solid fa-trash-can"></i>Supprimer</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h3>Commentaires</h3>
+                <table class="table table-success table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Utilisateur</th>
+                            <th scope="col">Commentaire</th>
+                            <th scope="col">Evènement</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for comment in comments %}
                             <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Nom de l'évènement</th>
-                                <th scope="col">Action</th>
+                                <td>{{ comment.user }}</td>
+                                <td>{{ comment.comment }}</td>
+                                <td>{{ comment.event.name }}</td>
+                                <td class="action-table align-middle">
+                                    <a class="ms-2 btn btn-danger btn-small" href="{{ path('app_booking_deletecomment', {id: comment.id}) }}"><i class="fa-solid fa-trash-can"></i>Supprimer</a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                                <tr>
-                                    <td>{{ event.id}}</td>
-                                    <td>{{ event.name}}</td>
-                                    <td class="action-table align-middle">
-                                        <a class="btn btn-primary btn-small" href="{{ path('app_post_changepost', {id: event.id}) }}"><i class="fa-solid fa-arrows-spin"></i>Modifier</a>
-                                        <a class="ms-2 btn btn-danger btn-small" href="{{ path('app_post_deletepost', {id: event.id}) }}"><i class="fa-solid fa-trash-can"></i>Supprimer</a>
-                                    </td>
-                                </tr>
-                        </tbody>
-                    </table>
-                {% endfor %}
-                <a class="tiny button right" href="{{ path('app_post_createpost') }}">Créer</a>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
