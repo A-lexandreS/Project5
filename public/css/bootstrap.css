@@ -932,7 +932,7 @@ button,
 select,
 textarea {
   font-size: 14px;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 20px;
 }
 
