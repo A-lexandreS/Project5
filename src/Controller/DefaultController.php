@@ -39,5 +39,10 @@ class DefaultController extends AbstractController
         $comments = $commentRepository->findAll();
         return $this->render('default/dashboard.html.twig', ['events' => $events, 'registrations' => $registrations, 'comments' => $comments]);
     }
+    #[Route('/siteMap')]
+    public function siteMap()
+    {
+        return $this->render('default/siteMap.html.twig', []);
+    }
 }
 

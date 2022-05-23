@@ -1,6 +1,6 @@
 <footer>
     <div class="footer-container"><!-- Begin Footer -->
-    	<div class="container">
+    	<div class="container container-footer">
         	<div class="row footer-row">
                 <div class="span3 footer-col">
                     <h5>À propos de nous</h5>
@@ -57,12 +57,14 @@
 
             <div class="row"><!-- Begin Sub Footer -->
                 <div class="span12 footer-col footer-sub">
-                    <div class="row no-margin">
-                        <div class="span6"><span class="left">&#169;  2022 - Tout droits réservés / Site réalisé par Alexandre Coulombier</span></div>
-                        <div class="span6">
-                            <span class="right">
-                            <a href="{{ path('app_default_home') }}">Accueil</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Se connecter</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="app_booking_booking">Réservation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="app_default_contact">Contact</a>
-                            </span>
+                    <div class="row no-margin row-subMenu">
+                        <div>&#169;  2022 - Tout droits réservés / Site réalisé par Alexandre Coulombier</div>
+                        <div class="sub-footerMenu">
+                            <a href="{{ path('app_default_home') }}"> Accueil</a>
+                            <a href="{{ path('app_user_login') }}"> | Se connecter</a>
+                            <a href="{{ path('app_default_events') }}"> | Événements</a>
+                            <a href="{{ path('app_default_contact') }}"> | Contact</a>
+                            <a href="{{ path('app_default_sitemap') }}"> | Site Map</a>
                         </div>
                     </div>
                 </div>

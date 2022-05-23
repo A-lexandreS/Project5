@@ -115,3 +115,74 @@ h1 {
     color: red;
     font-size: 13px;
 }
+
+/****** Login *******/
+
+#login{
+    width:25%;
+    margin:0 auto;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 575.98px ) 
+{
+    #login
+    {
+        width: 90%;
+    }
+    
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    #login 
+    {
+        width: 70%;
+    }
+}
+@media (min-width:768px) and (max-width: 991.98px)
+{
+    #login 
+    {
+        width: 50%;
+    }
+}
+#login form {
+    width:100%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#login h1{
+    width: 38%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+/* Full-width inputs */
+#login input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+#login #submit {
+    background-color: #53af57;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+#login input[type=submit]:hover {
+    background-color: white;
+    color: #53af57;
+    border: 1px solid #53af57;
+}

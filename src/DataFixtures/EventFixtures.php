@@ -34,7 +34,7 @@ class EventFixtures extends Fixture
                 ->setEndedAt(DateTimeImmutable::createFromMutable( $endedAt ))
                 ->setMaxRegistration(50)
                 ->setPrice(10)
-                ->setDescription($this->faker->text(350));
+                ->setDescription($this->faker->text(250));
                 
                 $manager->persist($event);
         }

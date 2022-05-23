@@ -10,7 +10,11 @@
  */
 
  
-#carousel{ display: flex;}
+#carousel
+{ 
+    display: flex;
+    width: 60%;
+}
 
 /***** import carousel *****/ 
 
@@ -45,4 +49,11 @@
 #slider:hover #suivant {
     opacity: 1;
 }
-
+#slider
+{
+    height: 100%;
+}
+#slide
+{
+    height: 100%;
+}
