@@ -1,22 +1,29 @@
 <header>
     <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
-    <div class="container">
-        <div class="row header">
+    <div class="container container-header">
+        <div class="row row-header">
             <div class="span5 logo">
                 <a href="{{ path('app_default_home') }}"><img src="{{ asset('img/logo.png') }}" alt="" /></a>
                 <h5>Théâtre Le Crystal</h5>
+                {% if app.user %}
+                    <div class="mb-3 pseudo-connexion">
+                        <p class="dashboard-link">Vous êtes connecté en tant que {{ app.user.pseudo }}. <a href="{{ path('app_user_logout') }}">Déconnexion</a></p>
+                    </div>
+    		    {% endif %}
             </div>
-
             <div class="span7 navigation">
+                <input type="checkbox" id="menu-checkbox">
+                <label for="menu-checkbox" class="burgerMenu"><i class="fa-solid fa-bars"></i></label>
                 <div class="navbar hidden-phone">
-
-                    <ul class="nav">
+                    <ul class="nav" id="menu">
                         <li class="principalMenu"><a href="{{ path('app_default_home') }}">Accueil </a></li>
                         <li class="principalMenu"><a href="{{ path('app_user_login') }}">Se connecter </a></li>
                         <li class="principalMenu"><a href="{{ path('app_default_events') }}">Événements</a></li>
                         <li class="principalMenu"><a href="{{ path('app_default_contact') }}">Contact</a></li>
-                        <li class="principalMenu"><a href="{{ path('app_default_dashboard') }}">Dashboard</a></li>
+                        {% if app.user %}
+                            <li class="principalMenu"><a href="{{ path('app_default_dashboard') }}">Dashboard</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

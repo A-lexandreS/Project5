@@ -1,0 +1,269 @@
+/******** Header Nav ******/
+
+@media (max-width: 575.98px ) 
+{
+    #menu
+    {
+        display: none;
+    }
+    .burgerMenu
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+    }
+    #menu-checkbox:checked ~ .navbar > #menu
+    {
+        display: flex !important;
+        position: absolute;
+        background: #fff;
+        flex-direction: column;
+	    z-index: 1000;
+        right: 0;
+    }
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    #menu
+    {
+        display: none;
+    }
+    .burgerMenu
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+    }
+    #menu-checkbox:checked ~ .navbar > #menu
+    {
+        display: flex !important;
+        position: absolute;
+        background: #fff;
+        flex-direction: column;
+	    z-index: 1000;
+        right: 0;
+    }
+}
+
+/******** Slider *******/
+
+@media (max-width: 575.98px ) 
+{
+    #carousel
+    { 
+        flex-direction: column-reverse;
+        width: 90% !important;
+    }
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    #carousel
+    { 
+        flex-direction: column-reverse;
+        width: 90%! important;
+    }
+}
+
+/****** Last Events *****/
+
+@media (max-width: 575.98px ) 
+{
+    .container-gallery
+    { 
+        width: 90%;
+    }
+    .row-lastEvents
+    {
+        flex-direction: column;
+    }
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    .container-gallery
+    {  
+        width: 90%;
+    }
+    .row-lastEvents
+    {
+        flex-direction: column;
+    }
+}
+
+/******* Footer ********/
+
+@media (max-width: 575.98px ) 
+{
+    .container-footer
+    { 
+        width: 90%;
+    }
+    .footer-row
+    {
+        flex-direction: column;
+    }
+    .img-feed
+    {
+        width: 40%;
+        row-gap: 3px;
+        column-gap: 0px;    
+    }
+    .row-subMenu
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .row-subMenu > div
+    {
+        line-height: 22px;
+    }
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    .container-footer
+    {  
+        width: 90%;
+    }
+    .footer-row
+    {
+        flex-direction: column;
+    }
+    .img-feed
+    {
+        width: 40%;
+        row-gap: 3px;
+        column-gap: 0px;
+    }
+    .row-subMenu
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .row-subMenu > div
+    {
+        line-height: 22px;
+    }
+
+}
+
+/********** EVents ********/
+
+@media (max-width: 575.98px ) 
+{
+    .container-events
+    {
+        width: 80%;
+    }
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    .container-events
+    {
+        width: 80%;
+    }
+}
+
+/********* Contact *******/
+
+@media (max-width: 575.98px ) 
+{
+    .row-contact
+    {
+        flex-direction: column;
+    }
+    .container-contact
+    {
+        width: 90%;
+    }
+    .contact
+    {
+        width: 100%;
+    }
+    .map-side
+    {
+        width: 100%;
+    }
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    .row-contact
+    {
+        flex-direction: column;
+    }
+    .container-contact
+    {
+        width: 90%;
+    }
+    .contact
+    {
+        width: 100%;
+    }
+    .map-side
+    {
+        width: 100%;
+    }
+}
+
+/********* Booking *******/
+
+@media (max-width: 575.98px ) 
+{
+    .container-booking
+    {
+        width: 90%;
+    }
+    .row-booking
+    {
+        flex-direction: column;
+    }
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    .container-booking
+    {
+        width: 90%;
+    }
+    .row-booking
+    {
+        flex-direction: column;
+    }
+}
+
+/******* Dashboard *******/
+
+@media (max-width: 575.98px ) 
+{
+    .container-dashboard
+    {
+        width: 90%;
+    }
+    .row-dashboard
+    {
+        margin-left: unset;
+    }
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    .container-dashboard
+    {
+        width: 90%;
+    }
+    .row-dashboard
+    {
+        margin-left: unset;
+    }
+    
+}
+@media (min-width:768px) and (max-width: 991.98px)
+{
+    .container-dashboard
+    {
+        width: 70%;
+    }
+    .row-dashboard
+    {
+        margin-left: unset;
+    }
+    
+}

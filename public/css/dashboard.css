@@ -42,3 +42,9 @@ table
     table-layout: fixed;
     width: 100%;
 }
+.dashboard-link
+{
+    text-align: right;
+    font-size: 14px;
+    font-weight: 600;
+}

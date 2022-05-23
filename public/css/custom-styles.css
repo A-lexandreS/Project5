@@ -8,7 +8,14 @@ body {
 body {
 	background: #f9f9f9 url(../img/page-bg-1.jpg);
 }
-
+#map
+{
+	height: 280px;
+}
+.leaflet-popup-content-wrapper
+{
+	font-size: 13px;
+}
 .main-container {
 	height: auto;
 	height: 100%;
@@ -1077,10 +1084,6 @@ p.side {
 		clear: both;
 		overflow: auto;
 		margin-bottom: 20px;
-	}
-
-	.footer-sub .right {
-		display: none;
 	}
 }
 

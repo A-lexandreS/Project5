@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container container-siteMap">
+        <ul class="list-site">
+            <li><a href="{{ path('app_default_home') }}">Accueil </a></li>
+            <li><a href="{{ path('app_user_login') }}">Se connecter </a></li>
+            <li><a href="{{ path('app_default_events') }}">Événements</a></li>
+            <li><a href="{{ path('app_default_contact') }}">Contact</a></li>
+            {% if app.user %}
+                <li><a href="{{ path('app_default_dashboard') }}">Dashboard</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}
