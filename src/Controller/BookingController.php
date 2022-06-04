@@ -10,7 +10,6 @@ use App\Entity\Registration;
 use App\Form\CommentType;
 use App\Form\RegistrationType;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,8 +24,7 @@ class BookingController extends AbstractController
         $booking = new Registration();
         $booking->setEvent($event);
         $formBooking = $this->createForm(RegistrationType::class, $booking)->handleRequest($request);
-
-        if ($formBooking->isSubmitted() && $formBooking->isValid()) 
+        if ($formBooking->isSubmitted() && $formBooking->isValid() && $this->isGranted('register', $event)) 
         {
             $em->persist($booking);
 
