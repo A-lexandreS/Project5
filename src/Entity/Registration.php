@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\RegistrationRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+
 #[ORM\Entity(repositoryClass: RegistrationRepository::class)]
 #[ORM\Table(name: "registrations")]
 class Registration
@@ -102,5 +104,17 @@ class Registration
         $this->quantity = $quantity;
 
         return $this;
+    }
+    #[Assert\Callback]
+    public function validate(ExecutionContextInterface $context, $payload)
+    {
+        $quantity = $this->getQuantity();
+        if($quantity > ($this->event->getMaxRegistration() - $this->event->getTotalQuantityRegistrations()))
+        {
+            $context->buildViolation('La quantité restante de place n\'est pas suffisante')
+                ->atPath('quantity')
+                ->addViolation()
+            ;
+        }
     }
 }

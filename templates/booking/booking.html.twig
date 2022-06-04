@@ -18,29 +18,34 @@
                         <p>{{ event.description }}</p>
                         <p>Prix de la prestation: {{ event.price }} euros</p>
                         <div class="well">
-                            {{ form_start(formBooking) }}
-                            <div class="form-group">
-                                {{ form_label(formBooking.lastName) }}
-                                {{ form_widget(formBooking.lastName) }}
-                                <div class="errorsForm">{{ form_errors(formBooking.lastName) }}</div>
-                            </div>
-                            <div class="form-group">
-                                {{ form_label(formBooking.firstName) }}
-                                {{ form_widget(formBooking.firstName) }}
-                                <div class="errorsForm">{{ form_errors(formBooking.firstName) }}</div>
-                            </div>
-                            <div class="form-group">
-                                {{ form_label(formBooking.email) }}
-                                {{ form_widget(formBooking.email) }}
-                                <div class="errorsForm">{{ form_errors(formBooking.email) }}</div>
-                            </div>
-                            <div class="form-group">
-                                {{ form_label(formBooking.quantity) }}
-                                {{ form_widget(formBooking.quantity) }}
-                                <div class="errorsForm">{{ form_errors(formBooking.quantity) }}</div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">S'inscrire</button>
-                            {{ form_end(formBooking) }}
+                            {% if is_granted('register', event) %}
+                                {{ form_start(formBooking) }}
+                                <div class="form-group">
+                                    {{ form_label(formBooking.lastName) }}
+                                    {{ form_widget(formBooking.lastName) }}
+                                    <div class="errorsForm">{{ form_errors(formBooking.lastName) }}</div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(formBooking.firstName) }}
+                                    {{ form_widget(formBooking.firstName) }}
+                                    <div class="errorsForm">{{ form_errors(formBooking.firstName) }}</div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(formBooking.email) }}
+                                    {{ form_widget(formBooking.email) }}
+                                    <div class="errorsForm">{{ form_errors(formBooking.email) }}</div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(formBooking.quantity) }}
+                                    {{ form_widget(formBooking.quantity) }}
+                                    <div class="errorsForm">{{ form_errors(formBooking.quantity) }}</div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">S'inscrire</button>
+                                {{ form_end(formBooking) }}
+                            {% endif %}
+                            {% if not is_granted('register', event) %}
+                                <p><span class="nbRegistration">Cette évennement est maintenant complet !</span></p>
+                            {% endif %}
                         </div>
                         <blockquote>
                             Vous souhaitez reserver ? Ajouter le nombre de place que vous désirez et completez en
