@@ -15,13 +15,13 @@ class UserController extends AbstractController
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
-    
+
         return $this->renderForm('user/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error
         ]);
     }
-    
+
     #[Route('/logout')]
     public function logout(): void
     {

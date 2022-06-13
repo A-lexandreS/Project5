@@ -234,8 +234,7 @@ class Event
     public function getTotalQuantityRegistrations(): int
     {
         $total = 0;
-        foreach($this->registrations as $registration)
-        {
+        foreach ($this->registrations as $registration) {
             $total += $registration->getQuantity();
         }
 

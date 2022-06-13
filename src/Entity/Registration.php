@@ -16,7 +16,7 @@ class Registration
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'registrations',cascade: ['persist'])]
+    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'registrations', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $event;
 
@@ -109,8 +109,7 @@ class Registration
     public function validate(ExecutionContextInterface $context, $payload)
     {
         $quantity = $this->getQuantity();
-        if($quantity > ($this->event->getMaxRegistration() - $this->event->getTotalQuantityRegistrations()))
-        {
+        if ($quantity > ($this->event->getMaxRegistration() - $this->event->getTotalQuantityRegistrations())) {
             $context->buildViolation('La quantité restante de place n\'est pas suffisante')
                 ->atPath('quantity')
                 ->addViolation()

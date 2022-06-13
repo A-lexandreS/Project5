@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Event;
 use App\Entity\Comment;
@@ -14,18 +13,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class BookingController extends AbstractController
 {
     #[Route('/booking/{id}')]
     public function booking(Request $request, EntityManagerInterface $em, Event $event): Response
     {
-        
         $booking = new Registration();
         $booking->setEvent($event);
         $formBooking = $this->createForm(RegistrationType::class, $booking)->handleRequest($request);
-        if ($formBooking->isSubmitted() && $formBooking->isValid() && $this->isGranted('register', $event)) 
-        {
+        if ($formBooking->isSubmitted() && $formBooking->isValid() && $this->isGranted('register', $event)) {
             $em->persist($booking);
 
             $em->flush();
@@ -35,9 +31,8 @@ class BookingController extends AbstractController
         $comment = new Comment();
         $comment->setEvent($event);
         $formComment = $this->createForm(CommentType::class, $comment)->handleRequest($request);
-        
-        if ($formComment->isSubmitted() && $formComment->isValid()) 
-        {
+
+        if ($formComment->isSubmitted() && $formComment->isValid()) {
             $em->persist($comment);
 
             $em->flush();

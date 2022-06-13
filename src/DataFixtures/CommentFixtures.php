@@ -17,14 +17,13 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
     }
     public function load(ObjectManager $manager): void
     {
-        for($i=0; $i < 3; $i++)
-        {
+        for ($i=0; $i < 3; $i++) {
             $dateTime = $this->faker->dateTime();
             $comment = new Comment();
             $comment->setEvent($this->getReference(EventFixtures::EVENT_REFERENCE))
                 ->setUser($this->faker->word())
                 ->setComment($this->faker->sentence())
-                ->setCommentDate(DateTimeImmutable::createFromMutable( $dateTime ));
+                ->setCommentDate(DateTimeImmutable::createFromMutable($dateTime));
             $manager->persist($comment);
         }
         $manager->flush();
