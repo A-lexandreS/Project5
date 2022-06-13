@@ -5563,3 +5563,35 @@ a.badge:hover {
 {
   line-height: 25px;
 }
+
+/******* Error Page ********/
+
+.container-errorPage
+{
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+#img-error
+{
+  width: 80%;
+}
+.text-errorPage
+{
+  font-size: 14px;
+}
+.content-errorPage
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.content-errorPage > h1
+{
+  font-size: 60px;
+}
+.btn-pageError
+{
+  width: 50%;
+  font-weight: bold;  
+}
