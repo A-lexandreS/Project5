@@ -146,6 +146,33 @@
     }
 
 }
+@media (min-width:768px) and (max-width: 991.98px)
+{
+    .container-footer
+    {  
+        width: 90%;
+    }
+    .footer-row
+    {
+        flex-direction: column;
+    }
+    .img-feed
+    {
+        width: 40%;
+        row-gap: 3px;
+        column-gap: 0px;
+    }
+    .row-subMenu
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .row-subMenu > div
+    {
+        line-height: 22px;
+    }
+    
+}
 
 /********** EVents ********/
 
@@ -184,6 +211,10 @@
     {
         width: 100%;
     }
+    #map
+    {
+        width: 95%;
+    }
 }
 @media (min-width:576px) and (max-width: 767.98px)
 {
@@ -202,6 +233,33 @@
     .map-side
     {
         width: 100%;
+    }
+    #map
+    {
+        width: 90%;
+    }
+}
+@media (min-width:768px) and (max-width: 991.98px)
+{
+    .row-contact
+    {
+        flex-direction: column;
+    }
+    .container-contact
+    {
+        width: 90%;
+    }
+    .contact
+    {
+        width: 100%;
+    }
+    .map-side
+    {
+        width: 100%;
+    }
+    #map
+    {
+        width: 90%;
     }
 }
 
@@ -266,4 +324,55 @@
         margin-left: unset;
     }
     
+}
+
+/********* Page Error *******/ 
+
+@media (max-width: 575.98px ) 
+{
+    .container-errorPage
+    {
+        flex-direction: column;
+        width: 90%;
+    }
+    .content-errorPage > *
+    {
+        margin: 15px;
+    }
+    #img-error
+    {
+        width: 100%;
+    }
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    .container-errorPage
+    {
+        flex-direction: column;
+        width: 90%;
+    }
+    .content-errorPage > *
+    {
+        margin: 15px;
+    }
+    #img-error
+    {
+        width: 100%;
+    }
+}
+@media (min-width:768px) and (max-width: 991.98px)
+{
+    .container-errorPage
+    {
+        flex-direction: column;
+        width: 90%;
+    }
+    .content-errorPage > *
+    {
+        margin: 15px;
+    }
+    #img-error
+    {
+        width: 100%;
+    }
 }

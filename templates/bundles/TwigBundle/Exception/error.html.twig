@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container container-errorPage">
+        <div class="picture-error"><img src="{{ asset('img/error-img.png') }}" alt="img-error" id="img-error"></div>
+        <div class="content-errorPage">
+            <h1>{{ status_code }}</h1>
+            <h2>OOps! il y a eu un problème</h2>
+            <p class="text-errorPage">La page que vous recherchez n'existe pas.
+                Comment vous êtes arrivé ici est un mystère. Mais vous pouvez cliquer sur le bouton ci-dessous
+                pour retourner à la page d'accueil.
+            </p>
+            <a class="btn green btn-pageError" href="{{ path('app_default_home') }}">Retour à la page d'accueil</a>
+        </div>
+    </div>
+{% endblock %}
