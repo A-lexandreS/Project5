@@ -2,12 +2,12 @@
 
 namespace App\DataFixtures;
 
-use Faker\Factory;
-use Faker\Generator;
 use App\Entity\Event;
 use DateTimeImmutable;
-use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Persistence\ObjectManager;
+use Faker\Factory;
+use Faker\Generator;
 
 class EventFixtures extends Fixture
 {
@@ -18,9 +18,10 @@ class EventFixtures extends Fixture
     {
         $this->faker = Factory::create('fr_FR');
     }
+
     public function load(ObjectManager $manager): void
     {
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 10; ++$i) {
             $now = $this->faker->dateTime();
             $event = new Event();
             $startedAt = $this->faker->dateTimeBetween($now, '+2 days');

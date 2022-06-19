@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 #[ORM\Entity(repositoryClass: RegistrationRepository::class)]
-#[ORM\Table(name: "registrations")]
+#[ORM\Table(name: 'registrations')]
 class Registration
 {
     #[ORM\Id]
@@ -105,6 +105,7 @@ class Registration
 
         return $this;
     }
+
     #[Assert\Callback]
     public function validate(ExecutionContextInterface $context, $payload)
     {

@@ -3,11 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\CommentRepository;
-use Doctrine\ORM\Mapping as ORM;
 use DateTimeImmutable;
+use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
-#[ORM\Table(name: "comments")]
+#[ORM\Table(name: 'comments')]
 class Comment
 {
     #[ORM\Id]
@@ -28,12 +28,12 @@ class Comment
     #[ORM\Column(type: 'datetime_immutable')]
     private $commentDate;
 
-
     public function __construct()
     {
         $date = new \DateTime('now');
         $this->commentDate = DateTimeImmutable::createFromMutable($date);
     }
+
     public function getId(): ?int
     {
         return $this->id;

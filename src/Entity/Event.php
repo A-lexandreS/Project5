@@ -3,14 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
-use DateTimeImmutable;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
-#[ORM\Table(name : "events")]
+#[ORM\Table(name : 'events')]
 class Event
 {
     #[ORM\Id]
@@ -33,13 +33,13 @@ class Event
     private $startedAt;
 
     #[Assert\NotBlank]
-    #[Assert\GreaterThan(propertyPath:'startedAt')]
+    #[Assert\GreaterThan(propertyPath: 'startedAt')]
     #[ORM\Column(type: 'datetime_immutable')]
     private $endedAt;
 
     #[Assert\NotBlank]
     #[Assert\Positive]
-    #[Assert\Length(min:2, max:4)]
+    #[Assert\Length(min: 2, max: 4)]
     #[ORM\Column(type: 'integer')]
     private $maxRegistration;
 
@@ -50,7 +50,7 @@ class Event
     #[Assert\GreaterThanOrEqual(
         value: 10,
     )]
-    #[Assert\Length(min:1, max:3)]
+    #[Assert\Length(min: 1, max: 3)]
     #[Assert\Positive]
     #[ORM\Column(type: 'integer')]
     #[Assert\Regex('/^\d*\.?\d*$/')]
@@ -71,6 +71,7 @@ class Event
         $this->eventDate = DateTimeImmutable::createFromMutable($date);
         $this->comments = new ArrayCollection();
     }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -231,6 +232,7 @@ class Event
 
         return $this;
     }
+
     public function getTotalQuantityRegistrations(): int
     {
         $total = 0;

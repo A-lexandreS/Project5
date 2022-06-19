@@ -43,8 +43,10 @@ class PostController extends AbstractController
             $em->persist($event);
 
             $em->flush();
+
             return $this->redirectToRoute('app_default_dashboard');
         }
+
         return $this->renderForm('post/createPost.html.twig', ['form' => $form]);
     }
 
@@ -57,16 +59,20 @@ class PostController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
+
             return $this->redirectToRoute('app_default_dashboard');
         }
+
         return $this->renderForm('post/changePost.html.twig', ['form' => $form]);
     }
+
     #[Route('/dashboard/delete-post/{id}')]
     public function deletePost(EntityManagerInterface $em, ManagerRegistry $doctrine, int $id): Response
     {
         $event = $doctrine->getRepository(Event::class)->find($id);
         $em->remove($event);
         $em->flush();
+
         return $this->redirectToRoute('app_default_dashboard');
     }
 }

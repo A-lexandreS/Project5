@@ -287,7 +287,17 @@
         flex-direction: column;
     }
 }
-
+@media (min-width:768px) and (max-width: 991.98px)
+{
+    .container-booking
+    {
+        width: 90%;
+    }
+    .row-booking
+    {
+        flex-direction: column;
+    }
+}
 /******* Dashboard *******/
 
 @media (max-width: 575.98px ) 

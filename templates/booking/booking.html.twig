@@ -63,13 +63,13 @@
 
 
             <section class="comments">
-                <h4 class="title-bg"><a name="comments"></a><span>{{ comments|length }}</span> commentaires</h4>
+                <h4 class="title-bg"><span>{{ comments|length }}</span> commentaires</h4>
                 <ul>
                     {% for comment in comments %}
                         <li>
                             <img src="{{ asset('img/user-avatar.jpg') }}" alt="Image" />
                             <span class="comment-name">{{ comment.user }}</span>
-                            <span class="comment-date"> || {{ comment.commentDate | date('d-m-Y') }}
+                            <span class="comment-date"> || {{ comment.commentDate | date('d-m-Y') }}</span>
                             <div class="comment-content">{{ comment.comment }}</div>
                         </li>
                     {% endfor %}
@@ -151,7 +151,7 @@
 
             
             <h5 class="title-bg">Le dernier spéctale de Strauss</h5>
-            <img src="" alt="">
+            <img src="{{ asset('img/strauss-img.jpg') }}" alt="img-strauss">
             <p>Prendre Contact avec nous ? <a href="{{ path('app_default_contact') }}">Lien Contact</a></p>
         </div>
 

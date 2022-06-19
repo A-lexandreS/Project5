@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Galleries{% endblock %}
+
 {% block body %}
     <div class="container container-events">
         <div class="row row-events">
@@ -26,7 +27,7 @@
                             </span>
                             <img src="{{ asset( 'uploads/pictures/' ~ event.picture) }}" alt="Gallery">
                             <span class="project-details"><a href="#">{{ event.name }}</a>{{ event.description |striptags |slice(0, 30) }}</span>
-                            <a class="btn btn-small btn-inverse" type="button" href="{{ path('app_booking_booking', {id: event.id}) }}">En savoir plus</a>
+                            <a class="btn btn-small btn-inverse" href="{{ path('app_booking_booking', {id: event.id}) }}">En savoir plus</a>
                         </li>
                         {% endfor %}
 

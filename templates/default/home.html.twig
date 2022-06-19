@@ -30,7 +30,7 @@
                             <img src="{{ asset( 'uploads/pictures/' ~ lastEvent.picture) }}" alt="image">
                             <h5>{{ lastEvent.name }}</h5>
                             <p>{{ lastEvent.description }}</p>
-                            <a class="btn btn-small btn-inverse" type="button" href="{{ path('app_booking_booking', {id: lastEvent.id}) }}">En lire plus</a>
+                            <a class="btn btn-small btn-inverse" href="{{ path('app_booking_booking', {id: lastEvent.id}) }}">En lire plus</a>
                         </div>
                     {% endfor %}
                 </div>
