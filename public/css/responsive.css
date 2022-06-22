@@ -287,7 +287,17 @@
         flex-direction: column;
     }
 }
-
+@media (min-width:768px) and (max-width: 991.98px)
+{
+    .container-booking
+    {
+        width: 90%;
+    }
+    .row-booking
+    {
+        flex-direction: column;
+    }
+}
 /******* Dashboard *******/
 
 @media (max-width: 575.98px ) 
@@ -374,5 +384,35 @@
     #img-error
     {
         width: 100%;
+    }
+}
+
+/******** Gallery Events ********/
+
+@media (max-width: 575.98px ) 
+{
+    .gallery-events
+    {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
+}
+@media (min-width:576px) and (max-width: 767.98px)
+{
+    .gallery-events
+    {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
+}
+@media (min-width:768px) and (max-width: 991.98px)
+{
+    .gallery-events
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
 }

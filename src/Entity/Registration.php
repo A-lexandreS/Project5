@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 #[ORM\Entity(repositoryClass: RegistrationRepository::class)]
-#[ORM\Table(name: "registrations")]
+#[ORM\Table(name: 'registrations')]
 class Registration
 {
     #[ORM\Id]
@@ -16,7 +16,7 @@ class Registration
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'registrations',cascade: ['persist'])]
+    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'registrations', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $event;
 
@@ -105,12 +105,12 @@ class Registration
 
         return $this;
     }
+
     #[Assert\Callback]
     public function validate(ExecutionContextInterface $context, $payload)
     {
         $quantity = $this->getQuantity();
-        if($quantity > ($this->event->getMaxRegistration() - $this->event->getTotalQuantityRegistrations()))
-        {
+        if ($quantity > ($this->event->getMaxRegistration() - $this->event->getTotalQuantityRegistrations())) {
             $context->buildViolation('La quantité restante de place n\'est pas suffisante')
                 ->atPath('quantity')
                 ->addViolation()

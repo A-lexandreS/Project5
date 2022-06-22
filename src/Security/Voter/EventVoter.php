@@ -4,11 +4,10 @@ namespace App\Security\Voter;
 
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class EventVoter extends Voter
 {
-    const Register = 'register';
+    public const Register = 'register';
 
     protected function supports(string $attribute, $subject): bool
     {
@@ -17,7 +16,7 @@ class EventVoter extends Voter
     }
 
     protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
-    {   
+    {
         return $subject->getMaxRegistration() > $subject->getTotalQuantityRegistrations();
     }
 }

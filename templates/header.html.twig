@@ -18,7 +18,9 @@
                 <div class="navbar hidden-phone">
                     <ul class="nav" id="menu">
                         <li class="principalMenu"><a href="{{ path('app_default_home') }}">Accueil </a></li>
-                        <li class="principalMenu"><a href="{{ path('app_user_login') }}">Se connecter </a></li>
+                        {% if not app.user %}
+                            <li class="principalMenu"><a href="{{ path('app_user_login') }}">Se connecter </a></li>
+                        {% endif %}
                         <li class="principalMenu"><a href="{{ path('app_default_events') }}">Événements</a></li>
                         <li class="principalMenu"><a href="{{ path('app_default_contact') }}">Contact</a></li>
                         {% if app.user %}

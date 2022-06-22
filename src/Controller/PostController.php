@@ -17,31 +17,25 @@ class PostController extends AbstractController
 {
     #[Route('/dashboard/create-post')]
     public function createPost(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
-    { 
-
+    {
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
 
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $picture = $form->get('picture')->getData();
-            if($picture)
-            {
+            if ($picture) {
                 $originalFileName = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
 
                 $safeFileName = $slugger->slug($originalFileName);
                 $newFilename = $safeFileName.'-'.uniqid().'.'.$picture->guessExtension();
 
-                try
-                {
+                try {
                     $picture->move(
                         $this->getParameter('picture_directory'),
                         $newFilename
                     );
-                } catch(FileException $e)
-                {
-                    
+                } catch (FileException $e) {
                 }
                 $event->setPicture($newFilename);
             }
@@ -49,11 +43,13 @@ class PostController extends AbstractController
             $em->persist($event);
 
             $em->flush();
+
             return $this->redirectToRoute('app_default_dashboard');
         }
+
         return $this->renderForm('post/createPost.html.twig', ['form' => $form]);
     }
-    
+
     #[Route('/dashboard/change-post/{id}')]
     public function changePost(Request $request, EntityManagerInterface $em, ManagerRegistry $doctrine, int $id): Response
     {
@@ -61,19 +57,22 @@ class PostController extends AbstractController
         $form = $this->createForm(EventType::class, $event);
 
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
+
             return $this->redirectToRoute('app_default_dashboard');
         }
+
         return $this->renderForm('post/changePost.html.twig', ['form' => $form]);
     }
+
     #[Route('/dashboard/delete-post/{id}')]
-    public function deletePost(EntityManagerInterface $em,ManagerRegistry $doctrine, int $id): Response
+    public function deletePost(EntityManagerInterface $em, ManagerRegistry $doctrine, int $id): Response
     {
         $event = $doctrine->getRepository(Event::class)->find($id);
         $em->remove($event);
         $em->flush();
+
         return $this->redirectToRoute('app_default_dashboard');
     }
 }

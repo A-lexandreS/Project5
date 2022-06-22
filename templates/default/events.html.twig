@@ -1,20 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Galleries{% endblock %}
+
 {% block body %}
     <div class="container container-events">
         <div class="row row-events">
-            
             <div class="span12 gallery">
-
                 <ul id="filterOptions" class="gallery-cats clearfix">
                     <li class="active"><a href="#" class="all">Comédie</a></li>
                     <li><a href="#" class="illustration">Classique</a></li>
                 </ul>
-
                 <div class="row clearfix">
-                    <ul class="gallery-post-grid holder">
-
+                    <ul class="gallery-post-grid holder gallery-events">
                         {% for event in events %}
                         <li class="span3 gallery-item" data-id="id-1" data-type="illustration">
                             <span class="gallery-hover-4col hidden-phone hidden-tablet">
@@ -25,17 +22,15 @@
                                 </span>
                             </span>
                             <img src="{{ asset( 'uploads/pictures/' ~ event.picture) }}" alt="Gallery">
-                            <span class="project-details"><a href="#">{{ event.name }}</a>{{ event.description |striptags |slice(0, 30) }}</span>
-                            <a class="btn btn-small btn-inverse" type="button" href="{{ path('app_booking_booking', {id: event.id}) }}">En savoir plus</a>
+                            <span class="project-details"><a
+                                    href="#">{{ event.name }}</a>{{ event.description |striptags |slice(0, 30) }}</span>
+                            <a class="btn btn-small btn-inverse" href="{{ path('app_booking_booking', {id: event.id}) }}">En
+                                savoir plus</a>
                         </li>
                         {% endfor %}
-
                     </ul>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 {% endblock %}
