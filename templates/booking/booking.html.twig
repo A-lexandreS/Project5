@@ -11,7 +11,7 @@
             <article>
                 <h3 class="title-bg"><a href="#">A subject that is beautiful in itself</a></h3>
                 <div class="post-content">
-                    <img src="{{ event.picture }}" alt="Post Thumb">
+                    <img src="{{ asset('uploads/pictures/' ~ event.picture) }}" alt="Post Thumb">
 
                     <div class="post-body">
                         <h3>{{ event.name }}</h3>
@@ -108,16 +108,13 @@
             <h5 class="title-bg">Dernier Post</h5>
             <ul class="popular-posts">
                 <li>
-                    <a href="#"><img src="img/gallery/gallery-img-2-thumb.jpg" alt="Popular Post"></a>
                     <h6><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h6>
                     <em>Posted on 09/01/15</em>
                 </li>
                 <li>
-                    <a href="#"><img src="img/gallery/gallery-img-2-thumb.jpg" alt="Popular Post"></a>
                     <h6><a href="#">Nulla iaculis mattis lorem, quis gravida nunc iaculis</a></h6>
                     <em>Posted on 09/01/15</em>
                 <li>
-                    <a href="#"><img src="img/gallery/gallery-img-2-thumb.jpg" alt="Popular Post"></a>
                     <h6><a href="#">Vivamus tincidunt sem eu magna varius elementum maecenas felis</a></h6>
                     <em>Posted on 09/01/15</em>
                 </li>

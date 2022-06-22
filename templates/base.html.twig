@@ -16,16 +16,18 @@
         <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
         <link rel="stylesheet" href="{{ asset('css/form.css') }}">
         <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-        {% endblock %}
         <link rel="stylesheet" href="{{ asset('css/style-ie.css') }}">
+        {% endblock %}
         
 
         <!-- Script JS -->
 
-        {% block javascripts %}{% endblock %}
-        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin="" defer></script>
-        <script src="{{ asset('js/slider.js') }}" defer></script>
-        <script src="{{ asset('js/map.js') }}" defer></script>
+        {% block javascripts %}
+            <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin="" defer></script>
+            <script src="{{ asset('js/slider.js') }}" defer></script>
+            <script src="{{ asset('js/map.js') }}" defer></script>
+        {% endblock %}
+        
     </head>
     <body>
         {{ include("header.html.twig")}}

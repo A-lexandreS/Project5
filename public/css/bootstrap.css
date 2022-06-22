@@ -5478,6 +5478,15 @@ a.badge:hover {
   display: flex;
 }
 
+/******* Event Gallery ******/
+
+.gallery-events
+{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
 /****** Footer ******/
 
 .container-footer
@@ -5594,4 +5603,11 @@ a.badge:hover {
 {
   width: 50%;
   font-weight: bold;  
+}
+
+/****** Create Post and Change Post ******/
+
+.container-post
+{
+  width: 60%;
 }
