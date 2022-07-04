@@ -9,12 +9,12 @@
         <div class="span8 blog">
 
             <article>
-                <h3 class="title-bg"><a href="#">A subject that is beautiful in itself</a></h3>
+                <h3 class="title-bg"><a href="#">{{ event.name }}</a></h3>
                 <div class="post-content">
                     <img src="{{ asset('uploads/pictures/' ~ event.picture) }}" alt="Post Thumb">
 
                     <div class="post-body">
-                        <h3>{{ event.name }}</h3>
+                        <h3>Réservation</h3>
                         <p>{{ event.description }}</p>
                         <p>Prix de la prestation: {{ event.price }} euros</p>
                         <div class="well">

@@ -27,7 +27,11 @@ class Registration
     )]
     #[ORM\Column(type: 'string', length: 50)]
     private $firstName;
-
+    
+    #[Assert\Regex(
+        pattern: '#^[a-zA-Z]#',
+        htmlPattern: '^[a-zA-Z]'
+    )]
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 50)]
     private $lastName;
