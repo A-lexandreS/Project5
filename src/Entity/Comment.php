@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CommentRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 #[ORM\Table(name: 'comments')]
@@ -19,9 +20,17 @@ class Comment
     #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private $event;
 
+    #[Assert\Regex(
+        pattern: '#^[a-zA-Z]#',
+        htmlPattern: '^[a-zA-Z]'
+    )]
     #[ORM\Column(type: 'string', length: 50)]
     private $user;
 
+    #[Assert\Regex(
+        pattern: '#^[a-zA-Z]#',
+        htmlPattern: '^[a-zA-Z]'
+    )]
     #[ORM\Column(type: 'string', length: 255)]
     private $comment;
 

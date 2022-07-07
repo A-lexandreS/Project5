@@ -6,7 +6,7 @@
             <div class="span8">  
                     <div class="content" id="slider">
                         <img src="../img/theatre.png" alt="img-slide" id="slide">
-                        <div id="precedent" onclick="ChangeSlide(-1)"><</div>
+                        <div id="precedent" onclick="ChangeSlide(-1)">&lt;</div>
                         <div id="suivant" onclick="ChangeSlide(1)">></div>
                     </div>
             </div>
@@ -32,6 +32,10 @@
                             <p>{{ lastEvent.description }}</p>
                             <a class="btn btn-small btn-inverse" href="{{ path('app_booking_booking', {id: lastEvent.id}) }}">En lire plus</a>
                         </div>
+                        {% block javascripts %}
+                            {{parent()}}
+                            <script src="{{ asset('js/slider.js') }}" defer></script>
+                        {% endblock %}
                     {% endfor %}
                 </div>
             </div>

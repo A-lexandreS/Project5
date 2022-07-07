@@ -49,6 +49,10 @@
                 </address>
                 <h5 class="title-bg">Emplacement théâtre</h5>
                 <div id="map"></div>
+                {% block javascripts %}
+                    {{parent()}}
+                    <script src="{{ asset('js/map.js') }}" defer></script>
+                {% endblock %}
             </div>
         </div>
     </div>
