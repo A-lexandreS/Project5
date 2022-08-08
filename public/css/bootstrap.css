@@ -5477,6 +5477,10 @@ a.badge:hover {
 {
   display: flex;
 }
+.ePortfolio
+{
+  font-size: 16px;
+}
 
 /******* Event Gallery ******/
 
