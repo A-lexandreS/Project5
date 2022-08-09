@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row headline">
+        <div class="container" id="carousel">
+            <div class="span8">  
+                    <div class="content" id="slider">
+                        <img src="../img/theatre.png" alt="img-slide" id="slide">
+                        <div id="precedent" onclick="ChangeSlide(-1)">&lt;</div>
+                        <div id="suivant" onclick="ChangeSlide(1)">></div>
+                    </div>
+            </div>
+            <div class="span4">
+                <h3>Bienvenue sur le site du théâtre Le Crystal<br />Scène française et international</h3>
+                <p>Cras rutrum, massa non blandit convallis, est lacus gravida enim, eu fermentum ligula orci et tortor. Insitamet nisl ac leo pulvinar molestie. Morbi blandit ultricies ultrices. <a class="ePortfolio" href="https://portfolio.alexandre-coulombier.fr">&#x21B7;Eportfolio</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gallery-row">
+        <div class="container container-gallery">
+            <div class="span12">
+                <h5 class="title-bg">Dernières Actualités
+                    <small>Représentation comique et musical</small>
+                    <button class="btn btn-mini btn-inverse hidden-phone" type="button">View Portfolio</button>
+                </h5>
+                <div class="row row-lastEvents">
+                    {% for lastEvent in lastEvents %}
+                        <div class="span4">
+                            <img src="{{ asset( 'uploads/pictures/' ~ lastEvent.picture) }}" alt="image">
+                            <h5>{{ lastEvent.name }}</h5>
+                            <p>{{ lastEvent.description }}</p>
+                            <a class="btn btn-small btn-inverse" href="{{ path('app_booking_booking', {id: lastEvent.id}) }}">En lire plus</a>
+                        </div>
+                        {% block javascripts %}
+                            {{parent()}}
+                            <script src="{{ asset('js/slider.js') }}" defer></script>
+                        {% endblock %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
